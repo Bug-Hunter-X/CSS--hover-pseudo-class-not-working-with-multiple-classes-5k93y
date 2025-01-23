@@ -1,0 +1,18 @@
+The following CSS code has an unusual error.  It uses a seemingly valid selector, but it fails to style the target element. 
+
+```css
+.my-class {
+  color: blue;
+}
+
+.my-class.another-class {
+  color: red;
+}
+
+/* This is the problematic part */
+.my-class.another-class:hover {
+  color: green; /* This style is never applied */
+}
+```
+
+The `.my-class.another-class` selector works correctly for setting the color to red. However, the `:hover` pseudo-class added to the same selector does not change the color to green.  It's as if the hover state is not recognized for that particular combination of classes.
