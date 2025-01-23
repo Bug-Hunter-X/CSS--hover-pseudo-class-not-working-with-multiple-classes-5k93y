@@ -1,0 +1,28 @@
+The issue can be solved in a couple of ways:
+
+**Solution 1: Specificity and Cascade**
+
+Adjust the order of classes in the selector.  Sometimes, the order of selectors can affect cascade. Alternatively, increase specificity if needed. For example, changing the `:hover` selector might fix it:
+
+```css
+.another-class.my-class:hover {
+  color: green;
+}
+```
+
+**Solution 2: Separate Hover Style**
+
+Instead of chaining classes in the selector, explicitly create a separate style for the hover state:
+
+```css
+.my-class.another-class {
+  color: red;
+}
+
+.my-class.another-class:hover {
+  color: green;
+}
+```
+
+**Solution 3 (If solution 1 and 2 doesn't work):  Check for conflicting styles**
+Ensure there are no other CSS rules with higher specificity that are overriding the `:hover` style.  Check for styles in external CSS files or inline styles that might be conflicting.
